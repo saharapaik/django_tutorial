@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Question(models.Model):
@@ -9,3 +10,13 @@ class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.choice
+
+
+class Test(models.Model):
+
+    def __init__(self,name,age):
+        name = name
+        age = age
